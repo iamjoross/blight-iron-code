@@ -15,6 +15,7 @@ import { GlobalStyle } from '../styles/global-styles';
 import { HomePage } from './containers/HomePage/Loadable';
 import { NotFoundPage } from './containers/NotFoundPage/Loadable';
 import { Dashboard } from './containers/Dashboard/Loadable';
+import { CreateListingPage } from './containers/CreateListingPage/Loadable';
 
 export function App() {
   return (
@@ -28,6 +29,11 @@ export function App() {
 
       <Switch>
         <Route exact path={process.env.PUBLIC_URL + '/'} component={Dashboard} />
+        <Route
+          exact
+          path={process.env.PUBLIC_URL + '/create-listing'}
+          component={CreateListingPage}
+        />
         {/* <Route
           exact
           path={process.env.PUBLIC_URL + '/dashboard'}
