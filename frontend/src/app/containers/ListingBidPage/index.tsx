@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro';
 import { PageWrapper } from 'app/components/PageWrapper';
 import ListingDetailCard from 'app/components/ListingDetailCard';
@@ -74,7 +75,10 @@ export function ListingBidPage() {
                       </Badge>
                     </Col>
                     <Col xs="12" md="2" className="text-center">
-                      <button className="btn btn-primary">View</button>
+                      
+                      <Link to={'/bid/manage/' + bid['id']} >
+                        <button className="btn btn-primary">View</button>
+                      </Link>
                     </Col>
                   </Row>
                 );

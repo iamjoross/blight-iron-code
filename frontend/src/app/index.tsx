@@ -18,6 +18,7 @@ import { NotFoundPage } from './containers/NotFoundPage/Loadable';
 import { Dashboard } from './containers/Dashboard/Loadable';
 import { CreateListingPage } from './containers/CreateListingPage/Loadable';
 import { ListingBidPage } from './containers/ListingBidPage/Loadable';
+import { ManageBidPage } from './containers/ManageBidPage/Loadable';
 import { SideMenu } from './containers/SideMenu';
 import { Header } from './containers/Header';
 import { StateProvider } from './state';
@@ -113,14 +114,19 @@ export const App = () => {
                     component={props => <CreateListingPage />}
                   />
                   <Route
-                    path={process.env.PUBLIC_URL + '/listing/bids'}
-                    exact
-                    component={props => <ListingBidPage />}
-                  />
-                  <Route
                     path={process.env.PUBLIC_URL + '/listings'}
                     exact
                     component={props => <ViewListing />}
+                  />
+                  <Route
+                    path={process.env.PUBLIC_URL + '/listing/bids/:listingId'}
+                    exact
+                    component={ListingBidPage}
+                  />
+                  <Route
+                    path={process.env.PUBLIC_URL + '/bid/manage/:listingBidId'}
+                    exact
+                    component={ManageBidPage}
                   />
                   <Route
                     path={process.env.PUBLIC_URL + '/profile'}

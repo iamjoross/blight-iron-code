@@ -5,17 +5,11 @@ import { Helmet } from 'react-helmet-async';
 import { PageWrapper } from 'app/components/PageWrapper';
 import { MainContent } from './components/MainContent';
 
-export const AddListing = () => {
+export const ManageBidPage = (props) => {
+  console.log('props', props.match.params.listingBidId)
   return (
     <Wrapper>
-      <Helmet>
-        <title>Dashboard</title>
-        <meta
-          name="description"
-          content="A React Boilerplate application homepage"
-        />
-      </Helmet>
-      <MainContent />
+      hello
     </Wrapper>
   );
 };

@@ -35,7 +35,9 @@ const bids = {
 for (let listingId in listings) {
   let listing = listings[listingId];
   for (let bidIndex in listing['bids']) {
-    listing['bids'][bidIndex] = bids[listing['bids'][bidIndex]];
+    const bidId = listing['bids'][bidIndex];
+    listing['bids'][bidIndex] = bids[bidId];
+    listing['bids'][bidIndex]['id'] = bidId;
   }
 }
 

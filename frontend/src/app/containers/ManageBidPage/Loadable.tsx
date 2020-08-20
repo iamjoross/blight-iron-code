@@ -15,9 +15,9 @@ const LoadingWrapper = styled.div`
   justify-content: center;
 `;
 
-export const AddListing = lazyLoad(
+export const ManageBidPage = lazyLoad(
   () => import('./index'),
-  module => module.AddListing,
+  module => module.ManageBidPage,
   {
     fallback: (
       <LoadingWrapper>
