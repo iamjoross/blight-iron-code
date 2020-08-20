@@ -72,7 +72,7 @@ const StarRating = styled.div`
 
   > div {
     margin: 0;
-    width: 1rem!important;
+    width: 1rem !important;
   }
 `;
 
