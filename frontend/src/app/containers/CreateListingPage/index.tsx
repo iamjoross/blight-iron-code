@@ -17,7 +17,7 @@ export function CreateListingPage() {
             Add in the details of your demand
           </div>
           <Form className="mb-4">
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group >
               <Form.Label className="font-weight-bold">Product</Form.Label>
               <select className="form-control">
                 <option>Select Product</option>
@@ -28,14 +28,14 @@ export function CreateListingPage() {
                 Select the product you are looking for
               </Form.Text>
             </Form.Group>
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group >
               <Form.Label className="font-weight-bold">Date Needed</Form.Label>
               <Form.Control type="date" />
               <Form.Text className="text-muted">
                 The Date you want to product to be ready
               </Form.Text>
             </Form.Group>
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group >
               <Form.Label className="font-weight-bold">Quantity</Form.Label>
               <InputGroup className="mb-2 mr-sm-2">
                 <Form.Control type="number" />
@@ -60,21 +60,21 @@ export function CreateListingPage() {
               id="inlineFormCheck"
               label="I can pick up the products from the farmer"
             />
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group >
               <Form.Label className="font-weight-bold">Message to the bidders</Form.Label>
               <Form.Control type="textarea" />
               <Form.Text className="text-muted">
                 Write the message you want to tell your bidders such as the taste, fertilizer, etc.
               </Form.Text>
             </Form.Group>
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group >
               <Form.Label className="font-weight-bold">Bidding Closing Date</Form.Label>
               <Form.Control type="date" />
               <Form.Text className="text-muted">
                 When will you stop accepting offers or bids.
               </Form.Text>
             </Form.Group>
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group >
               <Form.Label className="font-weight-bold">Initial Price</Form.Label>
               <Form.Control type="number" placeholder="Suggested Price: 10.00"/>
               <Form.Text className="text-muted">
