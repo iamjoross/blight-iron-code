@@ -70,6 +70,39 @@ export const App = () => {
     }
   `;
 
+  const [title, setTitle] = React.useState('Dashboard');
+
+  const listings = {
+    '/dashboard': {
+      title: 'Dashboard',
+      path: [
+        process.env.PUBLIC_URL + '/',
+        process.env.PUBLIC_URL + '/dashboard',
+      ],
+      component: <Dashboard />,
+    },
+    '/listing/add': {
+      title: 'Add Listing',
+      path: process.env.PUBLIC_URL + '/listing/add',
+      component: <CreateListingPage />,
+    },
+    '/listing/bids/:listingId': {
+      title: 'View Listings',
+      path: process.env.PUBLIC_URL + '/listing/bids/:listingId',
+      component: <ListingBidPage />,
+    },
+    '/bid/manage/:listingBidId': {
+      title: 'View Listings',
+      path: process.env.PUBLIC_URL + '/bid/manage/:listingBidId',
+      component: <ManageBidPage />,
+    },
+    '/profile': {
+      title: 'Profile',
+      path: process.env.PUBLIC_URL + '/profile',
+      component: <Profile />,
+    },
+  };
+
   return (
     <StateProvider initialState={initialState} reducer={() => {}}>
       <BrowserRouter>
@@ -89,6 +122,7 @@ export const App = () => {
                 onSelect={selected => {
                   const to = '/' + selected;
                   if (location.pathname !== to) {
+                    setTitle(listings[to].title);
                     history.push(to);
                   }
                 }}
@@ -96,44 +130,19 @@ export const App = () => {
                 isMenuCollapsed={isMenuCollapsed}
               />
               <HeaderWrapper isMenuCollapsed={!isMenuCollapsed}>
-                <Header title="Dashboard" bg="light" />
+                <Header title={title} bg="light" />
               </HeaderWrapper>
               <MainContentWrapper isMenuCollapsed={!isMenuCollapsed}>
                 <Switch>
-                  <Route
-                    path={[
-                      process.env.PUBLIC_URL + '/',
-                      process.env.PUBLIC_URL + '/dashboard',
-                    ]}
-                    exact
-                    component={props => <Dashboard />}
-                  />
-                  <Route
-                    path={process.env.PUBLIC_URL + '/listing/add'}
-                    exact
-                    component={props => <CreateListingPage />}
-                  />
-                  <Route
-                    path={process.env.PUBLIC_URL + '/listings'}
-                    exact
-                    component={props => <ViewListing />}
-                  />
-                  <Route
-                    path={process.env.PUBLIC_URL + '/listing/bids/:listingId'}
-                    exact
-                    component={ListingBidPage}
-                  />
-                  <Route
-                    path={process.env.PUBLIC_URL + '/bid/manage/:listingBidId'}
-                    exact
-                    component={ManageBidPage}
-                  />
-                  <Route
-                    path={process.env.PUBLIC_URL + '/profile'}
-                    exact
-                    component={props => <Profile />}
-                  />
-
+                  {Object.entries(listings).map((value, k) => {
+                    return (
+                      <Route
+                        path={value[1].path}
+                        exact
+                        component={props => value[1].component}
+                      />
+                    );
+                  })}
                   <Route path="*" exact={true} component={NotFoundPage} />
                 </Switch>
               </MainContentWrapper>
