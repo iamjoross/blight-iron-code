@@ -17,8 +17,7 @@ export const Dashboard = () => {
           content="A React Boilerplate application homepage"
         />
       </Helmet>
-      <Header></Header>
-      <SideMenu></SideMenu>
+      {/* <SideMenu></SideMenu> */}
       <MainContent></MainContent>
 
     </Wrapper>
