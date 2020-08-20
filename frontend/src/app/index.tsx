@@ -14,7 +14,7 @@ import { GlobalStyle } from '../styles/global-styles';
 
 import { HomePage } from './containers/HomePage/Loadable';
 import { NotFoundPage } from './containers/NotFoundPage/Loadable';
-import { ListingsPage } from './containers/ListingsPage/Loadable';
+import { Dashboard } from './containers/Dashboard/Loadable';
 
 export function App() {
   return (
@@ -27,12 +27,12 @@ export function App() {
       </Helmet>
 
       <Switch>
-        <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
-        <Route
+        <Route exact path={process.env.PUBLIC_URL + '/'} component={Dashboard} />
+        {/* <Route
           exact
-          path={process.env.PUBLIC_URL + '/s'}
-          component={ListingsPage}
-        />
+          path={process.env.PUBLIC_URL + '/dashboard'}
+          component={Dashboard}
+        /> */}
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
