@@ -80,12 +80,12 @@ const ListHeader = styled.div`
   display: flex;
   flex-direction: column;
 
-  h3{
+  h3 {
     margin: 0;
     font-size: 1.5rem;
   }
 
-  div{
+  div {
     font-size: 1.2rem;
     font-size: 0.8rem;
   }
