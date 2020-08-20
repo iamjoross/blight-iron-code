@@ -16,7 +16,6 @@ export const Dashboard = () => {
         />
       </Helmet>
       <MainContent />
-
     </Wrapper>
   );
 };
