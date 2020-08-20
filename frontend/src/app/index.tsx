@@ -22,7 +22,6 @@ import { SideMenu } from './containers/SideMenu';
 import { Header } from './containers/Header';
 import { StateProvider } from './state';
 import { ViewListing } from './containers/ViewListing';
-import { AddListing } from './containers/AddListing';
 import { Profile } from './containers/Profile';
 
 export const App = () => {
@@ -111,7 +110,12 @@ export const App = () => {
                   <Route
                     path={process.env.PUBLIC_URL + '/listing/add'}
                     exact
-                    component={props => <AddListing />}
+                    component={props => <CreateListingPage />}
+                  />
+                  <Route
+                    path={process.env.PUBLIC_URL + '/listing/bids'}
+                    exact
+                    component={props => <ListingBidPage />}
                   />
                   <Route
                     path={process.env.PUBLIC_URL + '/listings'}
