@@ -56,7 +56,7 @@ export const SideMenu: React.FC<ISideMenu> = ({
             'w-100 ' + (isMenuCollapsed ? 'text-left p-l-1' : 'text-center')
           }
         >
-          Test
+          Main
         </NavHeading>
         <NavItem eventKey="dashboard">
           <NavIcon>
@@ -71,13 +71,13 @@ export const SideMenu: React.FC<ISideMenu> = ({
         >
           Listings
         </NavHeading>
-        <NavItem eventKey="test">
+        <NavItem eventKey="listing/add">
           <NavIcon>
             <Icon icon="carbon-add-alt" style={{ fontSize: '1.75rem' }} />
           </NavIcon>
           <NavText>Add Listing</NavText>
         </NavItem>
-        <NavItem eventKey="test">
+        <NavItem eventKey="listings">
           <NavIcon>
             <Icon icon="ri-stack-line" style={{ fontSize: '1.75rem' }} />
           </NavIcon>
@@ -90,13 +90,13 @@ export const SideMenu: React.FC<ISideMenu> = ({
         >
           Account
         </NavHeading>
-        <NavItem eventKey="test">
+        <NavItem eventKey="profile">
           <NavIcon>
             <Icon icon="vs-profile" style={{ fontSize: '1.75rem' }} />
           </NavIcon>
           <NavText>My Profile</NavText>
         </NavItem>
-        <NavItem eventKey="test">
+        <NavItem eventKey="logout">
           <NavIcon>
             <Icon
               icon="ant-design:logout-outlined"
