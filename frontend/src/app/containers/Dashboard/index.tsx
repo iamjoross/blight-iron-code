@@ -3,9 +3,7 @@ import styled from 'styled-components/macro';
 
 import { Helmet } from 'react-helmet-async';
 import { PageWrapper } from 'app/components/PageWrapper';
-import { Header } from '../Header';
-import { SideMenu } from '../SideMenu';
-import { MainContent } from '../MainContent';
+import { MainContent } from './components/MainContent';
 
 export const Dashboard = () => {
   return (
@@ -17,8 +15,7 @@ export const Dashboard = () => {
           content="A React Boilerplate application homepage"
         />
       </Helmet>
-      {/* <SideMenu></SideMenu> */}
-      <MainContent></MainContent>
+      <MainContent />
 
     </Wrapper>
   );

@@ -77,6 +77,7 @@ export const App = () => {
                 }
               }}
               onToggle={(val) => toggleMenuCollapsed(!isMenuCollapsed)}
+              isMenuCollapsed={isMenuCollapsed}
             />
             <HeaderWrapper isMenuCollapsed={!isMenuCollapsed}>
               <Header title="Dashboard" bg="light"/>
