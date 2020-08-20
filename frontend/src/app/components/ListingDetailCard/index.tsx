@@ -6,16 +6,15 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 export default function ListDetailCard(props) {
-  console.log('props', props);
-  const { productId = 0 } = props;
+  const { listingId = 0 } = props;
   let listings = ListingDB.listings;
   return (
     <div>
       <Card border="light">
-        <Card.Img variant="top" src={listings[productId]['image']} />
+        <Card.Img variant="top" src={listings[listingId]['image']} />
         <Card.Body>
           <Card.Title className="text-center">
-            {listings[productId]['product']}
+            {listings[listingId]['product']}
           </Card.Title>
           <Form className="mb-4">
             <Form.Group as={Row} className="mb-0">
@@ -26,7 +25,7 @@ export default function ListDetailCard(props) {
                 <Form.Control
                   plaintext
                   readOnly
-                  defaultValue={listings[productId]['date_needed']}
+                  defaultValue={listings[listingId]['date_needed']}
                 />
               </Col>
             </Form.Group>
@@ -38,7 +37,7 @@ export default function ListDetailCard(props) {
                 <Form.Control
                   plaintext
                   readOnly
-                  defaultValue={listings[productId]['bidding_closing_date']}
+                  defaultValue={listings[listingId]['bidding_closing_date']}
                 />
               </Col>
             </Form.Group>
@@ -52,7 +51,7 @@ export default function ListDetailCard(props) {
                   plaintext
                   readOnly
                   defaultValue={
-                    'PhP ' + listings[productId]['initial_price'].toFixed(2)
+                    'PhP ' + listings[listingId]['initial_price'].toFixed(2)
                   }
                 />
               </Col>
@@ -66,7 +65,7 @@ export default function ListDetailCard(props) {
                   className="text-right"
                   plaintext
                   readOnly
-                  defaultValue={listings[productId]['quantity'] + ' kg'}
+                  defaultValue={listings[listingId]['quantity'] + ' kg'}
                 />
               </Col>
             </Form.Group>
@@ -78,15 +77,15 @@ export default function ListDetailCard(props) {
                 <Form.Control
                   className={
                     'text-right font-weight-bold ' +
-                    (listings[productId]['fulfilled_quantity'] <
-                    listings[productId]['quantity']
+                    (listings[listingId]['fulfilled_quantity'] <
+                    listings[listingId]['quantity']
                       ? 'text-warning'
                       : 'text-success')
                   }
                   plaintext
                   readOnly
                   defaultValue={
-                    listings[productId]['fulfilled_quantity'] + ' kg'
+                    listings[listingId]['fulfilled_quantity'] + ' kg'
                   }
                 />
               </Col>

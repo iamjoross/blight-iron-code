@@ -19,7 +19,7 @@ export function ListingBidPage() {
         <MainWrapper className="w-100 p-4">
           <Row >
             <Col xs="12" md="4">
-              <ListingDetailCard productId={listing['product_id']} />
+              <ListingDetailCard listingId={listing['product_id']} />
             </Col>
             <Col xs="12" md="8">
               <h2>Bids</h2>
