@@ -16,6 +16,7 @@ import { HomePage } from './containers/HomePage/Loadable';
 import { NotFoundPage } from './containers/NotFoundPage/Loadable';
 import { Dashboard } from './containers/Dashboard/Loadable';
 import { CreateListingPage } from './containers/CreateListingPage/Loadable';
+import { ListingBidPage } from './containers/ListingBidPage/Loadable';
 
 export function App() {
   return (
@@ -33,6 +34,11 @@ export function App() {
           exact
           path={process.env.PUBLIC_URL + '/create-listing'}
           component={CreateListingPage}
+        />
+        <Route
+          exact
+          path={process.env.PUBLIC_URL + '/listing-bids'}
+          component={ListingBidPage}
         />
         {/* <Route
           exact
