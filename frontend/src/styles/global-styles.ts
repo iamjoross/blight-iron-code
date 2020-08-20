@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    padding-top: ${StyleConstants.NAV_BAR_HEIGHT};
+    /* padding-top: ${StyleConstants.NAV_BAR_HEIGHT}; */
     background-color: ${p => p.theme.background};
   }
 
@@ -38,6 +38,15 @@ export const GlobalStyle = createGlobalStyle`
     width: 1.5rem;
     height: 1.5rem;
     vertical-align: -0.125em;
+  }
+
+  .bg-theme {
+    background: #262626;
+  }
+
+  button[class*='sidenav---sidenav-toggle'] {
+    width: 104px;
+    height: 104px;
   }
 
   .icon[data-icon="caretDown"]{
