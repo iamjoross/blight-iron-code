@@ -32,20 +32,21 @@ const Wrapper = styled.header`
   background-color: ${p => p.theme.background};
   z-index: 2;
 
-  @supports (backdrop-filter: blur(10px)) {
+  /* @supports (backdrop-filter: blur(10px)) {
     backdrop-filter: blur(10px);
     background-color: ${p =>
       p.theme.background.replace(
         /rgba?(\(\s*\d+\s*,\s*\d+\s*,\s*\d+)(?:\s*,.+?)?\)/,
-        'rgba$1,0.75)',
+        'rgba$1,0.1)',
       )};
-  }
+  } */
 
   ${PageWrapper} {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18) !important;
   }
 `;
 
