@@ -13,22 +13,22 @@ let listings = {
 };
 const bids = {
   1: {
-    bidder: 'Mang Juan',
-    bidder_address: 'Tuburan, Cebu, Central Visayas',
-    offered_price: 7,
-    offered_quantity: 46,
-    status: 1,
-  },
-  2: {
     bidder: 'Manong Pedro',
     offered_price: 11,
     offered_quantity: 30,
     status: 2,
   },
-  3: {
+  2: {
     bidder: 'Nicanor Dela Cruz',
     offered_price: 8,
     offered_quantity: 70,
+    status: 1,
+  },
+  3: {
+    bidder: 'Mang Juan',
+    bidder_address: 'Tuburan, Cebu, Central Visayas',
+    offered_price: 7,
+    offered_quantity: 46,
     status: 1,
   },
 };

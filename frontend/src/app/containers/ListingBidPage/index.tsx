@@ -16,18 +16,18 @@ export function ListingBidPage() {
     <Wrapper>
       <PageWrapper>
         <MainWrapper className="w-100 p-4">
-          <Row>
+          <Row >
             <Col xs="12" md="4">
               <ListingDetailCard productId={listing['product_id']} />
             </Col>
             <Col xs="12" md="8">
               <h2>Bids</h2>
               <Row className="text-center font-weight-bold mb-1">
-                <Col xs="4">Bidder</Col>
-                <Col xs="2">Price</Col>
-                <Col xs="2">Qty</Col>
-                <Col xs="2">Status</Col>
-                <Col xs="2"></Col>
+                <Col xs="4" className="d-none d-md-block">Bidder</Col>
+                <Col xs="2" className="d-none d-md-block">Price</Col>
+                <Col xs="2" className="d-none d-md-block">Qty</Col>
+                <Col xs="2" className="d-none d-md-block">Status</Col>
+                <Col xs="2" className="d-none d-md-block"></Col>
               </Row>
               {bids.map((bid, index) => {
                 let priceColor = '';
