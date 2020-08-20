@@ -5,7 +5,8 @@ import { getThemeFromStorage, isSystemDark } from './utils';
 import { RootState } from 'types';
 
 export const initialState: ThemeState = {
-  selected: getThemeFromStorage() || 'system',
+  selected: getThemeFromStorage() || 'light',
+  // selected: getThemeFromStorage() || 'system',
 };
 
 const themeSlice = createSlice({

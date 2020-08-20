@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
     line-height: 1.5;
+    color: #222222 !important;
   }
 
   body {
@@ -27,6 +28,10 @@ export const GlobalStyle = createGlobalStyle`
   input, select, button {
     font-family: inherit;
     font-size: inherit;
+  }
+
+  .mainColor{
+    color: #5db075;
   }
 
   .icon {
@@ -50,5 +55,20 @@ export const GlobalStyle = createGlobalStyle`
   .icon[data-icon="corn"]{
     content: url('https://api.iconify.design/carbon:corn.svg?height=10');
     width: 1.1rem !important;
+  }
+
+  .icon[data-icon="starFull"]{
+    content: url('https://api.iconify.design/dashicons:star-filled.svg?width=10&height=10');
+    color: #5db075;
+  }
+
+  .icon[data-icon="starHalf"]{
+    content: url('https://api.iconify.design/dashicons:star-half.svg?width=10&height=10');
+    color: #5db075;
+  }
+
+  .icon[data-icon="starEmpty"]{
+    content: url('https://api.iconify.design/dashicons:star-empty.svg?width=10&height=10');
+    color: #5db075;
   }
 `;
