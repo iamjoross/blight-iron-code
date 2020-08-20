@@ -48,9 +48,9 @@ export function ListingBidPage() {
                 };
                 console.log(bid['offered_price']);
                 if (bid['offered_price'] > listing['initial_price']) {
-                  priceColor = 'text-success';
-                } else if (bid['offered_price'] < listing['initial_price']) {
                   priceColor = 'text-danger';
+                } else if (bid['offered_price'] < listing['initial_price']) {
+                  priceColor = 'text-success';
                 }
                 return (
                   <Row className="border p-2 mb-2 bg-light" key={index}>
