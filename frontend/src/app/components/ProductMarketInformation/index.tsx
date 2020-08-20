@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import Button from 'react-bootstrap/Button'
 
 
 export default function ProductMarketInformation(){
@@ -36,8 +38,56 @@ export default function ProductMarketInformation(){
             </div>
           </div>
           <div className="col-12 col-md-6 p-2">
-            The pricing history shows the prices from the accepted bids and price regulated by the government
+            <p>The pricing history shows the prices from the accepted bids and price regulated by the government</p>
+            <div className="text-center mb-2">
+              <ButtonGroup aria-label="Basic example">
+                <Button variant="outline-dark">Left</Button>
+                <Button variant="outline-dark">Middle</Button>
+                <Button variant="outline-dark">Right</Button>
+              </ButtonGroup>
+            </div>
             <Image className='w-100' src={require('./assets/area-chart.png') + ''} thumbnail />
+          </div>
+          <div className="col-12 col-md-6 p-2">
+            <p>The table shows the average price closed within the day</p>
+            <table className="table table-sm">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Price per Kilo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>August 14, 2020</td>
+                  <td className="text-right">9.00</td>
+                </tr>
+                <tr>
+                  <td>August 15, 2020</td>
+                  <td className="text-right">9.00</td>
+                </tr>
+                <tr>
+                  <td>August 16, 2020</td>
+                  <td className="text-right">9.00</td>
+                </tr>
+                <tr>
+                  <td>August 17, 2020</td>
+                  <td className="text-right">9.00</td>
+                </tr>
+                <tr>
+                  <td>August 18, 2020</td>
+                  <td className="text-right">9.00</td>
+                </tr>
+                <tr>
+                  <td>August 19, 2020</td>
+                  <td className="text-right">9.00</td>
+                </tr>
+                <tr>
+                  <td>August 20, 2020</td>
+                  <td className="text-right">9.00</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

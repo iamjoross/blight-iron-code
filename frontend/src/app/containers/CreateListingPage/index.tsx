@@ -76,7 +76,7 @@ export function CreateListingPage() {
             </Form.Group>
             <Form.Group controlId="formBasicEmail">
               <Form.Label className="font-weight-bold">Initial Price</Form.Label>
-              <Form.Control type="number" />
+              <Form.Control type="number" placeholder="Suggested Price: 10.00"/>
               <Form.Text className="text-muted">
                 The price per kilo you are willing spend. The higher the price you can offer, the more bidder will be intereted in giving you the products. Please check the market information below to help you decide the best price for you.
               </Form.Text>
