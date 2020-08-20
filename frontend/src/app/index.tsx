@@ -59,40 +59,8 @@ export const App = () => {
       line-height: 29px;
     }
   `;
->>>>>>> 8e89dd1229b2fbfcd955e71e95d29dfdb34bb876
 
   return (
-<<<<<<< HEAD
-    <BrowserRouter>
-      <Helmet
-        titleTemplate="%s - React Boilerplate"
-        defaultTitle="React Boilerplate"
-      >
-        <meta name="description" content="A React Boilerplate application" />
-      </Helmet>
-
-      <Switch>
-        <Route exact path={process.env.PUBLIC_URL + '/'} component={Dashboard} />
-        <Route
-          exact
-          path={process.env.PUBLIC_URL + '/create-listing'}
-          component={CreateListingPage}
-        />
-        <Route
-          exact
-          path={process.env.PUBLIC_URL + '/listing-bids'}
-          component={ListingBidPage}
-        />
-        {/* <Route
-          exact
-          path={process.env.PUBLIC_URL + '/dashboard'}
-          component={Dashboard}
-        /> */}
-        <Route component={NotFoundPage} />
-      </Switch>
-      <GlobalStyle />
-    </BrowserRouter>
-=======
     <StateProvider initialState={initialState} reducer={() => {}}>
       <BrowserRouter>
         <Route render={({location, history}) => (
@@ -120,6 +88,8 @@ export const App = () => {
               <Switch>
                 <Route path={[process.env.PUBLIC_URL + "/", process.env.PUBLIC_URL + "/dashboard"]} exact component={props => <Dashboard />} />
                 <Route path={"/test"} exact component={props => <HomePage />} />
+                <Route path={"/create-listing"} exact component={props => <CreateListingPage />} />
+                <Route path={"/listing-bids"} exact component={props => <ListingBidPage />} />
                 <Route path='*' exact={true} component={NotFoundPage} />
               </Switch>
             </MainContentWrapper>
@@ -128,7 +98,6 @@ export const App = () => {
         <GlobalStyle />
       </BrowserRouter>
     </StateProvider>
->>>>>>> 8e89dd1229b2fbfcd955e71e95d29dfdb34bb876
   );
 }
 
