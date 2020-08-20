@@ -14,7 +14,6 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 import { GlobalStyle } from '../styles/global-styles';
 
-import { HomePage } from './containers/HomePage/Loadable';
 import { NotFoundPage } from './containers/NotFoundPage/Loadable';
 import { Dashboard } from './containers/Dashboard/Loadable';
 import { CreateListingPage } from './containers/CreateListingPage/Loadable';
@@ -22,6 +21,9 @@ import { ListingBidPage } from './containers/ListingBidPage/Loadable';
 import { SideMenu } from './containers/SideMenu';
 import { Header } from './containers/Header';
 import { StateProvider } from './state';
+import { ViewListing } from './containers/ViewListing';
+import { AddListing } from './containers/AddListing';
+import { Profile } from './containers/Profile';
 
 export const App = () => {
   const [isMenuCollapsed, toggleMenuCollapsed] = React.useState(false);
@@ -34,18 +36,26 @@ export const App = () => {
   const MainContentWrapper = styled.div<IWrapperProps>`
     position: absolute;
     top: 104px;
-    ${({ isMenuCollapsed }) => isMenuCollapsed ? 'left: 104px;' : 'left: 240px;'}
-    ${({ isMenuCollapsed }) => isMenuCollapsed ? 'width: calc(100% - 104px);' : 'width: calc(100% - 240px);'}
+    ${({ isMenuCollapsed }) =>
+      isMenuCollapsed ? 'left: 104px;' : 'left: 240px;'}
+    ${({ isMenuCollapsed }) =>
+      isMenuCollapsed
+        ? 'width: calc(100% - 104px);'
+        : 'width: calc(100% - 240px);'}
     -webkit-transtition: left .3s ease-in-out, right .3s ease-in-out;
-    transition: left .3s ease-in-out, right .3s ease-in-out;
+    transition: left 0.3s ease-in-out, right 0.3s ease-in-out;
   `;
 
   const HeaderWrapper = styled.div<IWrapperProps>`
     position: absolute;
-    ${({ isMenuCollapsed }) => isMenuCollapsed ? 'left: 104px;' : 'left: 240px;'}
-    ${({ isMenuCollapsed }) => isMenuCollapsed ? 'width: calc(100% - 104px);' : 'width: calc(100% - 240px);'}
+    ${({ isMenuCollapsed }) =>
+      isMenuCollapsed ? 'left: 104px;' : 'left: 240px;'}
+    ${({ isMenuCollapsed }) =>
+      isMenuCollapsed
+        ? 'width: calc(100% - 104px);'
+        : 'width: calc(100% - 240px);'}
     -webkit-transtition: left .3s ease-in-out, right .3s ease-in-out;
-    transition: left .3s ease-in-out, right .3s ease-in-out;
+    transition: left 0.3s ease-in-out, right 0.3s ease-in-out;
     background: #ffffff !important;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.13);
     nav {
@@ -63,43 +73,65 @@ export const App = () => {
   return (
     <StateProvider initialState={initialState} reducer={() => {}}>
       <BrowserRouter>
-        <Route render={({location, history}) => (
-          <>
-            <Helmet
-              titleTemplate="%s - React Boilerplate"
-              defaultTitle="React Boilerplate"
-            >
-              <meta name="description" content="A React Boilerplate application" />
-            </Helmet>
-            <SideMenu
-              onSelect={selected => {
-                const to = '/' + selected;
-                if (location.pathname !== to) {
-                  history.push(to);
-                }
-              }}
-              onToggle={(val) => toggleMenuCollapsed(!isMenuCollapsed)}
-              isMenuCollapsed={isMenuCollapsed}
-            />
-            <HeaderWrapper isMenuCollapsed={!isMenuCollapsed}>
-              <Header title="Dashboard" bg="light"/>
-            </HeaderWrapper>
+        <Route
+          render={({ location, history }) => (
+            <>
+              <Helmet
+                titleTemplate="%s - React Boilerplate"
+                defaultTitle="React Boilerplate"
+              >
+                <meta
+                  name="description"
+                  content="A React Boilerplate application"
+                />
+              </Helmet>
+              <SideMenu
+                onSelect={selected => {
+                  const to = '/' + selected;
+                  if (location.pathname !== to) {
+                    history.push(to);
+                  }
+                }}
+                onToggle={val => toggleMenuCollapsed(!isMenuCollapsed)}
+                isMenuCollapsed={isMenuCollapsed}
+              />
+              <HeaderWrapper isMenuCollapsed={!isMenuCollapsed}>
+                <Header title="Dashboard" bg="light" />
+              </HeaderWrapper>
+              <MainContentWrapper isMenuCollapsed={!isMenuCollapsed}>
+                <Switch>
+                  <Route
+                    path={[
+                      process.env.PUBLIC_URL + '/',
+                      process.env.PUBLIC_URL + '/dashboard',
+                    ]}
+                    exact
+                    component={props => <Dashboard />}
+                  />
+                  <Route
+                    path={process.env.PUBLIC_URL + '/listing/add'}
+                    exact
+                    component={props => <AddListing />}
+                  />
+                  <Route
+                    path={process.env.PUBLIC_URL + '/listings'}
+                    exact
+                    component={props => <ViewListing />}
+                  />
+                  <Route
+                    path={process.env.PUBLIC_URL + '/profile'}
+                    exact
+                    component={props => <Profile />}
+                  />
 
-            <MainContentWrapper isMenuCollapsed={!isMenuCollapsed}>
-              <Switch>
-                <Route path={[process.env.PUBLIC_URL + "/", process.env.PUBLIC_URL + "/dashboard"]} exact component={props => <Dashboard />} />
-                <Route path={"/test"} exact component={props => <HomePage />} />
-                <Route path={"/create-listing"} exact component={props => <CreateListingPage />} />
-                <Route path={"/listing-bids"} exact component={props => <ListingBidPage />} />
-                <Route path='*' exact={true} component={NotFoundPage} />
-              </Switch>
-            </MainContentWrapper>
-          </>
-        )}/>
+                  <Route path="*" exact={true} component={NotFoundPage} />
+                </Switch>
+              </MainContentWrapper>
+            </>
+          )}
+        />
         <GlobalStyle />
       </BrowserRouter>
     </StateProvider>
   );
-}
-
-
+};
