@@ -13,7 +13,6 @@ export function ListingBidPage() {
   }
   const listing = ListingDB['listings'][listingId];
   const bids = listing['bids'];
-  console.log(listingId, listing, bids)
   return (
     <Wrapper className="pt-4 px-2">
       <Container>

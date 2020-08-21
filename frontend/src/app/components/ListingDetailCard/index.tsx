@@ -8,8 +8,9 @@ import Badge from 'react-bootstrap/Badge';
 
 export default function ListDetailCard(props) {
   const { listingId = 0 } = props
-  let {addNewQuantity} = props
-  let listings = ListingDB.listings;
+  let {addNewQuantity = 0} = props
+  let listings = ListingDB.listings
+  console.log(listings[listingId])
   let [fulfilledQuantity, setFulfilledQuantity] = useState(parseInt(listings[listingId]['fulfilled_quantity']))
   const addQuantity = (quantity) => {
     setFulfilledQuantity(fulfilledQuantity + quantity)
