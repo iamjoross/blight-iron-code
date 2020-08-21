@@ -18,6 +18,7 @@ import { NotFoundPage } from './containers/NotFoundPage/Loadable';
 import { Dashboard } from './containers/Dashboard/Loadable';
 import { CreateListingPage } from './containers/CreateListingPage/Loadable';
 import { ListingBidPage } from './containers/ListingBidPage/Loadable';
+import { ListingsPage } from './containers/ListingsPage/Loadable';
 import { ManageBidPage } from './containers/ManageBidPage/Loadable';
 import { SideMenu } from './containers/SideMenu';
 import { Header } from './containers/Header';
@@ -80,6 +81,11 @@ export const App = () => {
         process.env.PUBLIC_URL + '/dashboard',
       ],
       component: <Dashboard />,
+    },
+    '/listing': {
+      title: 'Listing',
+      path: process.env.PUBLIC_URL + '/listing',
+      component: <ListingsPage />,
     },
     '/listing/add': {
       title: 'Add Listing',

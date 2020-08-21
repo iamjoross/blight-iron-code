@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -10,6 +11,16 @@ import ProductMarketInformation from 'app/components/ProductMarketInformation';
 
 export function CreateListingPage() {
   let [productId, setProductId] = useState("0")
+  let [isSubmitting, setIsSubmitting] = useState(false)
+  let [hasSubmitted, setHasSubmitted] = useState(false)
+  const placeListing = () => {
+    console.log('test')
+    setIsSubmitting(true)
+    setTimeout(() => {
+      setIsSubmitting(false)
+      setHasSubmitted(true)
+    }, 2000)
+  }
   return (
     <Wrapper className="p-4">
       <Row>
@@ -101,7 +112,20 @@ export function CreateListingPage() {
                 </Form.Text>
               </Form.Group>
               <div className="text-center">
-                <BButton variant="primary">Place Listing</BButton>
+                {!isSubmitting && !hasSubmitted &&
+                  <BButton onClick={placeListing} variant="primary">Place Listing</BButton>
+                }
+                {isSubmitting &&
+                  'Please wait...'
+                }
+                {hasSubmitted &&
+                  <div>
+                    <div className="text-success mb-1">Your listing has been placed!</div>
+                    <Link to={'/listing/bids/3'} >
+                      <BButton variant="success">View Bids</BButton>
+                    </Link>
+                  </div>
+                }
               </div>
             </Form>
           </div>
