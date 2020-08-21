@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 
 export default function ViewOffer(props){
-  let bid = props.bid
+  let {bid, hasAcceptedFunction} = props
   const listing = props.listing
   let [isResponding, setIsResponding] = useState(false)
   let [status, setStatus] = useState(bid['status'])
@@ -13,6 +13,7 @@ export default function ViewOffer(props){
       setIsResponding(false)
       bid['status'] = 2
       setStatus(bid['status'])
+      hasAcceptedFunction(bid['offered_quantity'])
     }, 2000)
   }
   const messages = [

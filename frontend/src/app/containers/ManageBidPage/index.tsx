@@ -20,21 +20,24 @@ export const ManageBidPage = (props) => {
     alert('Listing is undefined')
   }
   const listing = ListingDB.listings[listingId]
-  
   const [tabKey, setTabKey] = useState(bid ? 'messages' : 'productMarketInformaiton');
-  
+  const [newQuantity, setNewQuantity] = useState(0);
+  const hasAccepted = (quantity) => {
+    setNewQuantity(quantity)
+    // listingDetailRef.addQuantity(quantity)
+  }
   return (
     <Wrapper className="p-4">
       <Container>
 
-        <Link to={'/listing/bids/' + listingId} >{'<-'} Go Back to the List of Bids</Link>
+        <Link  to={'/listing/bids/' + listingId} >{'<-'} Go Back to the List of Bids</Link>
         <Row className="mt-2">
           <Col xs="12" md="4">
-            <ListingDetailCard listingId={listingId} />
+            <ListingDetailCard  listingId={listingId} addNewQuantity={newQuantity} />
           </Col>
           <Col xs="12" md="8">
             {listingBidId !== null &&
-              <ViewOffer bid={bid} listing={listing}/>
+              <ViewOffer bid={bid} listing={listing} hasAcceptedFunction={hasAccepted}/>
             }
             {listingBidId === null &&
               <YourOffer bid={bid} listing={listing}/>

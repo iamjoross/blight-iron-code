@@ -1,13 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ListingDB from 'app/database/listings';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Badge from 'react-bootstrap/Badge';
 
 export default function ListDetailCard(props) {
-  const { listingId = 0 } = props;
+  const { listingId = 0 } = props
+  let {addNewQuantity} = props
   let listings = ListingDB.listings;
+  let [fulfilledQuantity, setFulfilledQuantity] = useState(parseInt(listings[listingId]['fulfilled_quantity']))
+  const addQuantity = (quantity) => {
+    setFulfilledQuantity(fulfilledQuantity + quantity)
+  }
   return (
     <div>
       <Card border="light">
@@ -77,20 +83,21 @@ export default function ListDetailCard(props) {
                 <Form.Control
                   className={
                     'text-right font-weight-bold ' +
-                    (listings[listingId]['fulfilled_quantity'] <
+                    ((fulfilledQuantity + addNewQuantity) <
                     listings[listingId]['quantity']
                       ? 'text-warning'
                       : 'text-success')
                   }
                   plaintext
                   readOnly
-                  defaultValue={
-                    listings[listingId]['fulfilled_quantity'] + ' kg'
-                  }
+                  value={(fulfilledQuantity + addNewQuantity) + ' kg'}
                 />
               </Col>
             </Form.Group>
           </Form>
+          {(fulfilledQuantity + addNewQuantity) === listings[listingId]['quantity'] &&
+            <div className="text-center"><big><Badge variant="success">Listing Fulfilled!</Badge></big></div>
+          }
         </Card.Body>
       </Card>
     </div>

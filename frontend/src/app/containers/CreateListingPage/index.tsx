@@ -65,16 +65,15 @@ export function CreateListingPage() {
                 </Form.Text>
               </Form.Group>
               <Form.Check
+                checked
                 type="checkbox"
                 className="mb-2 mr-sm-2"
-                id="inlineFormCheck"
                 label="I accept multiple farmers to supply my needs"
               />
               <Form.Check
-                value="true"
+                checked
                 type="checkbox"
                 className="mb-2 mr-sm-2"
-                id="inlineFormCheck"
                 label="I can pick up the products from the farmer"
               />
               <Form.Group>
