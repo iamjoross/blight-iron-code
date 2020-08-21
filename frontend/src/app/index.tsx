@@ -20,6 +20,7 @@ import { CreateListingPage } from './containers/CreateListingPage/Loadable';
 import { ListingBidPage } from './containers/ListingBidPage/Loadable';
 import { ListingsPage } from './containers/ListingsPage/Loadable';
 import { ManageBidPage } from './containers/ManageBidPage/Loadable';
+import { RegistrationPage } from './containers/RegistrationPage/Loadable';
 import { SideMenu } from './containers/SideMenu';
 import { Header } from './containers/Header';
 import { StateProvider } from './state';
@@ -106,6 +107,11 @@ export const App = () => {
       title: 'View Listings',
       path: process.env.PUBLIC_URL + '/bid/create/:listingId',
       component: <ManageBidPage />,
+    },
+    '/register': {
+      title: 'View Listings',
+      path: process.env.PUBLIC_URL + '/register',
+      component: <RegistrationPage />,
     },
     '/profile': {
       title: 'Profile',
