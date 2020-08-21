@@ -3,6 +3,7 @@ import styled from 'styled-components/macro';
 import { PageWrapper } from 'app/components/PageWrapper';
 import ListingDB from 'app/database/listings.js'
 import ProductMarketInformation from 'app/components/ProductMarketInformation';
+import ProductInformation from 'app/components/ProductInformation';
 import Conversation from './components/Conversation'
 import ViewOffer from './components/ViewOffer'
 import YourOffer from './components/YourOffer'
@@ -11,7 +12,6 @@ import {Row, Col, Form, Button, Tabs, Tab} from 'react-bootstrap';
 import ListingDetailCard from 'app/components/ListingDetailCard';
 
 export const ManageBidPage = (props) => {
-  let params = useParams()
   const {listingBidId = null} = useParams()
   let {listingId = null} = useParams()
   const bid = listingBidId ? ListingDB.bids[listingBidId] : null
@@ -21,7 +21,7 @@ export const ManageBidPage = (props) => {
   }
   const listing = ListingDB.listings[listingId]
   
-  const [tabKey, setTabKey] = useState('messages');
+  const [tabKey, setTabKey] = useState(bid ? 'messages' : 'productMarketInformaiton');
   
   return (
     <Wrapper className="p-4">
@@ -47,11 +47,14 @@ export const ManageBidPage = (props) => {
               <ProductMarketInformation />
             </Tab>
             <Tab eventKey="productInformation" title="Product Information" className="pt-4">
-              Product Information
+              <ProductInformation />
             </Tab>
-            <Tab eventKey="messages" title="Messages" className="pt-4">
-              <Conversation />
-            </Tab>
+            {bid !== null &&
+              <Tab eventKey="messages" title="Messages" className="pt-4">
+                <Conversation />
+              </Tab>
+            }
+            
           </Tabs>
           
         </Col>

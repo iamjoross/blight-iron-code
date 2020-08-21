@@ -53,8 +53,9 @@ export default function ViewOffer(props){
                   <Form.Control
                     plaintext
                     readOnly
-                    defaultValue={'PhP ' + (bid['offered_price']).toFixed(2)}
+                    defaultValue={'PhP ' + (bid['offered_price']).toFixed(2) + ' per kilo'}
                   />
+                  
                 </Col>
               </Form.Group>
             </Form>

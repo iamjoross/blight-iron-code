@@ -34,12 +34,12 @@ export default function ProductMarketInformation() {
                 <small className="w-100">Recommended Price</small>
               </Col>
               <Col className="text-center mb-3" xs="12" md="4">
-                <span className="font-weight-bold w-100">PhP 60.00</span>
+                <span className="font-weight-bold w-100">PhP 80.00</span>
                 <br />
                 <small className="w-100">Highest Price</small>
               </Col>
               <Col className="text-center mb-3" xs="12" md="4">
-                <span className="font-weight-bold w-100">PhP 80.00</span>
+                <span className="font-weight-bold w-100">PhP 50.00</span>
                 <br />
                 <small className="w-100">Lowest Price</small>
               </Col>

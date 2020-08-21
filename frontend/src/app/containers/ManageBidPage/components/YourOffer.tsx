@@ -69,6 +69,9 @@ export default function ViewOffer(props){
                     <InputGroup.Prepend>
                       <InputGroup.Text>pesos per kilo</InputGroup.Text>
                     </InputGroup.Prepend>
+                    <Form.Text className="text-muted">
+                      Please check the market information at the bottom before deciding for the price
+                    </Form.Text>
                   </InputGroup>
                 </Col>
               </Form.Group>
