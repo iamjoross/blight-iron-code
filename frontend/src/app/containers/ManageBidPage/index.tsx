@@ -5,36 +5,38 @@ import ListingDB from 'app/database/listings.js'
 import ProductMarketInformation from 'app/components/ProductMarketInformation';
 import Conversation from './components/Conversation'
 import ViewOffer from './components/ViewOffer'
+import YourOffer from './components/YourOffer'
 import { Link, useParams } from 'react-router-dom'
 import {Row, Col, Form, Button, Tabs, Tab} from 'react-bootstrap';
 import ListingDetailCard from 'app/components/ListingDetailCard';
 
 export const ManageBidPage = (props) => {
+  let params = useParams()
   const {listingBidId = null} = useParams()
   let {listingId = null} = useParams()
   const bid = listingBidId ? ListingDB.bids[listingBidId] : null
-  listingId = listingBidId ? bid['listing_id'] : null
-  const listing = ListingDB.listings[listingId]
-  let [isResponding, setIsResponding] = useState(false)
-  let [status, setStatus] = useState(bid['status'])
-  const [tabKey, setTabKey] = useState('messages');
-  let acceptOffer = () => {
-    setIsResponding(true)
-    setTimeout(() => {
-      setIsResponding(false)
-      bid['status'] = 2
-      setStatus(bid['status'])
-    }, 2000)
+  listingId = listingBidId ? bid['listing_id'] : listingId
+  if(typeof ListingDB.listings[listingId] === 'undefined'){
+    alert('Listing is undefined')
   }
+  const listing = ListingDB.listings[listingId]
+  
+  const [tabKey, setTabKey] = useState('messages');
+  
   return (
     <Wrapper className="p-4">
-      <Link to={'/listing/bids/' + bid['listing_id']} >{'<-'} Go Back to the List of Bids</Link>
+      <Link to={'/listing/bids/' + listingId} >{'<-'} Go Back to the List of Bids</Link>
       <Row className="mt-2">
         <Col xs="12" md="4">
-          <ListingDetailCard listingId={bid['listing_id']} />
+          <ListingDetailCard listingId={listingId} />
         </Col>
         <Col xs="12" md="8">
-          <ViewOffer bid={bid} listing={listing}/>
+          {listingBidId !== null &&
+            <ViewOffer bid={bid} listing={listing}/>
+          }
+          {listingBidId === null &&
+            <YourOffer bid={bid} listing={listing}/>
+          }
           <div className="mb-4" >{' '}</div>
           <Tabs
             className="mt-4"
