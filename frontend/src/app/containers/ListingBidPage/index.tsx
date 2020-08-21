@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components/macro';
 import { PageWrapper } from 'app/components/PageWrapper';
 import ListingDetailCard from 'app/components/ListingDetailCard';
@@ -9,17 +9,20 @@ import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 
 export function ListingBidPage() {
-  const listingId = 1;
+  const {listingId} = useParams();
+  if(typeof ListingDB['listings'][listingId] === 'undefined'){
+    alert('Please use /listing/bids/3')
+  }
   const listing = ListingDB['listings'][listingId];
-  console.log('listing', listing);
   const bids = listing['bids'];
+  console.log(listingId, listing, bids)
   return (
     <Wrapper>
       <PageWrapper>
         <MainWrapper className="w-100 p-4">
           <Row >
             <Col xs="12" md="4">
-              <ListingDetailCard listingId={listing['product_id']} />
+              <ListingDetailCard listingId={listingId} />
             </Col>
             <Col xs="12" md="8">
               <h2>Bids</h2>
@@ -46,7 +49,6 @@ export function ListingBidPage() {
                     color: 'light',
                   },
                 };
-                console.log(bid['offered_price']);
                 if (bid['offered_price'] > listing['initial_price']) {
                   priceColor = 'text-danger';
                 } else if (bid['offered_price'] < listing['initial_price']) {

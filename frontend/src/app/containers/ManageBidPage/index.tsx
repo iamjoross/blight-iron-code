@@ -1,16 +1,16 @@
 import React, {useState}  from 'react';
 import styled from 'styled-components/macro';
-
 import { PageWrapper } from 'app/components/PageWrapper';
 import ListingDB from 'app/database/listings.js'
 import ListingDetailCard from 'app/components/ListingDetailCard';
 import Conversation from './components/Conversation'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import {Row, Col, Form, Button} from 'react-bootstrap';
 
 
 export const ManageBidPage = (props) => {
-  const bid = ListingDB.bids[props.match.params.listingBidId]
+  const {listingBidId} = useParams()
+  const bid = ListingDB.bids[listingBidId]
   const listing = ListingDB.listings[bid['listing_id']]
   let [isResponding, setIsResponding] = useState(false)
   let [status, setStatus] = useState(bid['status'])

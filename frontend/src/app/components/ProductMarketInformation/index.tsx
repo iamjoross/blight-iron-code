@@ -16,7 +16,7 @@ export default function ProductMarketInformation() {
             <img
               alt="veg-pic"
               className="w-100"
-              src="https://dummyimage.com/300x200/000/fff"
+              src="/assets/images/dragonfruit.png"
             />
           </div>
           <div className="col-12 col-md-8 pt-4">
@@ -29,17 +29,17 @@ export default function ProductMarketInformation() {
             </p>
             <div className="row">
               <Col className="text-center mb-3" xs="12" md="4">
-                <big className="font-weight-bold w-100">PhP 10.00</big>
+                <big className="font-weight-bold w-100">PhP 60.00</big>
                 <br />
                 <small className="w-100">Recommended Price</small>
               </Col>
               <Col className="text-center mb-3" xs="12" md="4">
-                <span className="font-weight-bold w-100">PhP 20.00</span>
+                <span className="font-weight-bold w-100">PhP 60.00</span>
                 <br />
                 <small className="w-100">Highest Price</small>
               </Col>
               <Col className="text-center mb-3" xs="12" md="4">
-                <span className="font-weight-bold w-100">PhP 5.00</span>
+                <span className="font-weight-bold w-100">PhP 80.00</span>
                 <br />
                 <small className="w-100">Lowest Price</small>
               </Col>
@@ -74,33 +74,36 @@ export default function ProductMarketInformation() {
               </thead>
               <tbody>
                 <tr>
-                  <td>August 14, 2020</td>
-                  <td className="text-right">9.00</td>
-                </tr>
-                <tr>
-                  <td>August 15, 2020</td>
-                  <td className="text-right">9.00</td>
-                </tr>
-                <tr>
-                  <td>August 16, 2020</td>
-                  <td className="text-right">9.00</td>
-                </tr>
-                <tr>
-                  <td>August 17, 2020</td>
-                  <td className="text-right">9.00</td>
-                </tr>
-                <tr>
-                  <td>August 18, 2020</td>
-                  <td className="text-right">9.00</td>
+                  <td>August 20, 2020</td>
+                  <td className="text-right">70.00</td>
                 </tr>
                 <tr>
                   <td>August 19, 2020</td>
-                  <td className="text-right">9.00</td>
+                  <td className="text-right">80.00</td>
                 </tr>
                 <tr>
-                  <td>August 20, 2020</td>
-                  <td className="text-right">9.00</td>
+                  <td>August 18, 2020</td>
+                  <td className="text-right">60.00</td>
                 </tr>
+                <tr>
+                  <td>August 17, 2020</td>
+                  <td className="text-right">60.00</td>
+                </tr>
+                <tr>
+                  <td>August 16, 2020</td>
+                  <td className="text-right">50.00</td>
+                </tr>
+                <tr>
+                  <td>August 15, 2020</td>
+                  <td className="text-right">45.00</td>
+                </tr>
+                <tr>
+                  <td>August 14, 2020</td>
+                  <td className="text-right">50.00</td>
+                </tr>
+                
+                
+                
               </tbody>
             </table>
           </div>
