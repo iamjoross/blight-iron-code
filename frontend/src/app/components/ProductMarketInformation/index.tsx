@@ -51,10 +51,10 @@ export default function ProductMarketInformation() {
               price regulated by the government
             </p>
             <div className="text-center mb-2">
-              <ButtonGroup aria-label="Basic example">
-                <Button variant="outline-dark">Left</Button>
-                <Button variant="outline-dark">Middle</Button>
-                <Button variant="outline-dark">Right</Button>
+              <ButtonGroup size="sm">
+                <Button variant="outline-dark">2Y</Button>
+                <Button variant="outline-dark">6M</Button>
+                <Button variant="outline-dark">Y2</Button>
               </ButtonGroup>
             </div>
             <Image

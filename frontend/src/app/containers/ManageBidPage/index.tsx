@@ -2,18 +2,22 @@ import React, {useState}  from 'react';
 import styled from 'styled-components/macro';
 import { PageWrapper } from 'app/components/PageWrapper';
 import ListingDB from 'app/database/listings.js'
-import ListingDetailCard from 'app/components/ListingDetailCard';
+import ProductMarketInformation from 'app/components/ProductMarketInformation';
 import Conversation from './components/Conversation'
+import ViewOffer from './components/ViewOffer'
 import { Link, useParams } from 'react-router-dom'
-import {Row, Col, Form, Button} from 'react-bootstrap';
-
+import {Row, Col, Form, Button, Tabs, Tab} from 'react-bootstrap';
+import ListingDetailCard from 'app/components/ListingDetailCard';
 
 export const ManageBidPage = (props) => {
-  const {listingBidId} = useParams()
-  const bid = ListingDB.bids[listingBidId]
-  const listing = ListingDB.listings[bid['listing_id']]
+  const {listingBidId = null} = useParams()
+  let {listingId = null} = useParams()
+  const bid = listingBidId ? ListingDB.bids[listingBidId] : null
+  listingId = listingBidId ? bid['listing_id'] : null
+  const listing = ListingDB.listings[listingId]
   let [isResponding, setIsResponding] = useState(false)
   let [status, setStatus] = useState(bid['status'])
+  const [tabKey, setTabKey] = useState('messages');
   let acceptOffer = () => {
     setIsResponding(true)
     setTimeout(() => {
@@ -30,49 +34,24 @@ export const ManageBidPage = (props) => {
           <ListingDetailCard listingId={bid['listing_id']} />
         </Col>
         <Col xs="12" md="8">
-          <h3>{bid['bidder']} 's Offer</h3>
-          <div className="border rounded p-2 px-4 mb-4">
-            <Form >
-              <Form.Group as={Row} className="mb-0">
-                <Form.Label className="font-weight-bold mb-0" column xs="5">
-                  Quantity
-                </Form.Label>
-                <Col xs="7">
-                  <Form.Control
-                    plaintext
-                    readOnly
-                    defaultValue={bid['offered_quantity'] + ' kg out of ' + (listing['quantity'] - listing['fulfilled_quantity']) + ' kg needed'}
-                  />
-                </Col>
-              </Form.Group>
-              <Form.Group as={Row} className="mb-0">
-                <Form.Label className="font-weight-bold mb-0" column xs="5">
-                  Price
-                </Form.Label>
-                <Col xs="7">
-                  <Form.Control
-                    plaintext
-                    readOnly
-                    defaultValue={'PhP ' + (bid['offered_price']).toFixed(2)}
-                  />
-                </Col>
-              </Form.Group>
-            </Form>
-            
-          </div>
-          { status === 1 && !isResponding &&
-            <div className="text-center">
-              <Button onClick={acceptOffer} variant="success">Accept Offer</Button> {' '}
-              <Button variant="danger">Decline Offer</Button>
-            </div>
-          }
-          { status === 2 && !isResponding &&
-            <div className="text-success text-center font-weight-bold"> Thank you for accepting this offer!</div>
-          }
-          { isResponding &&
-            <div className="text-center font-weight-bold"> Please wait...</div>
-          }
-          <Conversation />
+          <ViewOffer bid={bid} listing={listing}/>
+          <div className="mb-4" >{' '}</div>
+          <Tabs
+            className="mt-4"
+            activeKey={tabKey}
+            onSelect={(key) => setTabKey(key + '')}
+          >
+            <Tab eventKey="productMarketInformaiton" title="Market Information" className="pt-4">
+              <ProductMarketInformation />
+            </Tab>
+            <Tab eventKey="productInformation" title="Product Information" className="pt-4">
+              Product Information
+            </Tab>
+            <Tab eventKey="messages" title="Messages" className="pt-4">
+              <Conversation />
+            </Tab>
+          </Tabs>
+          
         </Col>
       </Row>
     </Wrapper>

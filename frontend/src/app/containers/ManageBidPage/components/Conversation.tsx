@@ -17,7 +17,7 @@ export default function Conversation(props){
     }
   ]
   return (
-    <div className="mt-4 pt-4">
+    <div>
       <h4>Your conversations</h4>
       {messages.map((message, index) => {
         return (
