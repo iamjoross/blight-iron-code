@@ -96,6 +96,11 @@ export const App = () => {
       path: process.env.PUBLIC_URL + '/bid/manage/:listingBidId',
       component: <ManageBidPage />,
     },
+    '/bid/create/:listingId': {
+      title: 'View Listings',
+      path: process.env.PUBLIC_URL + '/bid/create/:listingId',
+      component: <ManageBidPage />,
+    },
     '/profile': {
       title: 'Profile',
       path: process.env.PUBLIC_URL + '/profile',
