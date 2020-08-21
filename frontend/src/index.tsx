@@ -16,6 +16,7 @@ import * as serviceWorker from 'serviceWorker';
 
 import 'sanitize.css/sanitize.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 // Initialize languages
 import './locales/i18n';

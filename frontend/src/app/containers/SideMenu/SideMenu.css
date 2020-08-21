@@ -1,0 +1,17 @@
+
+div[class*='sidenav---navicon---'] {
+  margin-left: 20px;
+}
+
+div[class*='sidenav---navicon---'] svg{
+  color: #fff !important;
+}
+
+
+div[class*='sidenav---highlighted']{
+  border-left: 3px solid #24CE85
+}
+
+.p-l-1 {
+  padding-left: 20px
+}

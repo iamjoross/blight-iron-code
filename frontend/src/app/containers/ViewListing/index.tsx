@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { PageWrapper } from 'app/components/PageWrapper';
 import { MainContent } from './components/MainContent';
 
-export const Dashboard = () => {
+export const ViewListing = () => {
   return (
     <Wrapper>
       <Helmet>
