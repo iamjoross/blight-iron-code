@@ -54,7 +54,7 @@ export default function ProductMarketInformation() {
               <ButtonGroup size="sm">
                 <Button variant="outline-dark">2Y</Button>
                 <Button variant="outline-dark">6M</Button>
-                <Button variant="outline-dark">Y2</Button>
+                <Button variant="outline-dark">YTD</Button>
               </ButtonGroup>
             </div>
             <Image
