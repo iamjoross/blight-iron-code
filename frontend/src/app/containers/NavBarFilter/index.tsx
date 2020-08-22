@@ -15,7 +15,7 @@ export function NavBarFilter() {
         <SearchBar />
         <RightWrapper>
           <ShoppingCart style={{ marginLeft: 10 }} />
-          <UserMenuPill />
+          {/* <UserMenuPill /> */}
         </RightWrapper>
       </PageWrapper>
     </Wrapper>

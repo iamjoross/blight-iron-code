@@ -16,7 +16,7 @@ export const ListWrapper: React.FC<any> = () => {
         <div
           style={{ fontSize: '1.5rem', lineHeight: '3.5rem', fontWeight: 500 }}
         >
-          Looking for: <span className="mainColor bolder">Dragon Fruit</span> around{' '}
+          Looking for: <span className="mainColor bolder">Any Product</span> around{' '}
           <span className="mainColor bolder">Negros Occidental</span>
         </div>
         <FilterButtonsWrapper>

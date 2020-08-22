@@ -6,14 +6,14 @@ export const SearchBar: React.FC<any> = () => {
     <Wrapper>
       <Location>
         <Icon className="icon" data-icon="search" />
-        <span>Dumaguete</span>
+        <span>Negros Occidental</span>
       </Location>
       <Category>
         <Icon className="icon" data-icon="corn" />
-        <span>Corn</span>
+        <span>Any Product</span>
       </Category>
       <Date>
-        <span>Sept 7</span>
+        <span>Any date</span>
       </Date>
     </Wrapper>
   );
