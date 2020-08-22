@@ -72,7 +72,7 @@ export const App = () => {
     }
   `;
 
-  const [title, setTitle] = React.useState('Dashboard');
+  const [title, setTitle] = React.useState('Registration');
 
   const listings = {
     '/dashboard': {
@@ -109,7 +109,7 @@ export const App = () => {
       component: <ManageBidPage />,
     },
     '/register': {
-      title: 'View Listings',
+      title: 'Registration',
       path: process.env.PUBLIC_URL + '/register',
       component: <RegistrationPage />,
     },
