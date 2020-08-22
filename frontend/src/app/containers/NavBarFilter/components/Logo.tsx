@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 export function Logo() {
   return (
     <Wrapper>
-      <Title>Logo</Title>
+      <Title>Listings</Title>
     </Wrapper>
   );
 }

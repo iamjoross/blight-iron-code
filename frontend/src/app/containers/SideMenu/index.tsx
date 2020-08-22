@@ -79,6 +79,12 @@ export const SideMenu: React.FC<ISideMenu> = ({
         </NavItem>
         <NavItem eventKey="listings">
           <NavIcon>
+            <Icon icon="fa-regular:list-alt" style={{ fontSize: '1.75rem' }} />
+          </NavIcon>
+          <NavText>Listings</NavText>
+        </NavItem>
+        <NavItem eventKey="listing/own">
+          <NavIcon>
             <Icon icon="ri-stack-line" style={{ fontSize: '1.75rem' }} />
           </NavIcon>
           <NavText>My Listings</NavText>
