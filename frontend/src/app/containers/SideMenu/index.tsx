@@ -26,7 +26,7 @@ export const SideMenu: React.FC<ISideMenu> = ({
     <SideNav
       onSelect={onSelect}
       onToggle={onToggle}
-      style={{ backgroundColor: '#262626', transition: 'none', width: '104px' }}
+      style={{ backgroundColor: '#262626', transition: 'none', width: '104px', position: 'fixed' }}
     >
       <SideNav.Toggle
         componentClass={obj => {
