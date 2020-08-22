@@ -1,38 +1,45 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components/macro';
 
-export const ListItem: React.FC<any> = () => {
+export const ListItem: React.FC<any> = (props) => {
+  const {listing} = props
   return (
     <Wrapper className="list-item">
       <div>
-        <img alt="veg-pic" src="https://dummyimage.com/300x200/000/fff" />
+        <img alt="veg-pic" src={listing['image']} style={{width: '300px'}}/>
       </div>
       <div>
         <ListHeader>
-          <h3>Carrots</h3>
-          <div>Producer: Juan Dela Cruz</div>
+          <h3>{listing['product']}</h3>
+          <div>Producer: {listing['user']}</div>
+          <div>Quantity: {listing['quantity']} kilo</div>
         </ListHeader>
         <ListContent>
-          <p>This is where the description goes.</p>
+          <p>{listing['message']}</p>
+          <Link to={'/bid/create/' + listing['id']} >
+            <button className="btn btn-sm btn-outline-success">Send an Offer</button>
+          </Link>
         </ListContent>
         <ListFooter>
           <div style={{ display: 'flex', height: 25, alignItems: 'center' }}>
             <StarRating>
               <Icon className="icon" data-icon="starFull" />
               <Icon className="icon" data-icon="starFull" />
+              <Icon className="icon" data-icon="starFull" />
               <Icon className="icon" data-icon="starHalf" />
               <Icon className="icon" data-icon="starEmpty" />
-              <Icon className="icon" data-icon="starEmpty" />
             </StarRating>
-            <FarmerScore>3.50</FarmerScore>
+            <FarmerScore>4.50</FarmerScore>
             <RatingCount>(30)</RatingCount>
           </div>
           <div>
             <div>
-              ₱<span>&nbsp;4,383</span>
+              ₱<span>&nbsp;{(listing['initial_price']).toFixed(2)}</span>
               <span>/ kilo</span>
             </div>
           </div>
+          
         </ListFooter>
       </div>
     </Wrapper>

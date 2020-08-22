@@ -1,25 +1,23 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { ListItem } from './ListItem';
-
+import ListingDB from 'app/database/listings'
 export const ListWrapper: React.FC<any> = () => {
   const ListItems: any[] = [];
-
-  for (let i = 0; i < 10; i++) {
-    ListItems.push(<ListItem />);
+  for(let listingId in ListingDB.listings){
+    ListItems.push(<ListItem key={listingId} listing={ListingDB.listings[listingId]}/>);
   }
-
   return (
     <Wrapper>
       <div style={{ padding: '50px 0' }}>
         <div style={{ fontSize: '0.9rem' }}>
-          <span className="mainColor">10+</span> farmers has your demand
+          <span className="mainColor">10+</span> listings found base on your filter
         </div>
         <div
           style={{ fontSize: '1.5rem', lineHeight: '3.5rem', fontWeight: 500 }}
         >
-          Looking for: <span className="mainColor bolder">Corn</span> around{' '}
-          <span className="mainColor bolder">Dumaguete City</span>
+          Looking for: <span className="mainColor bolder">Dragon Fruit</span> around{' '}
+          <span className="mainColor bolder">Negros Occidental</span>
         </div>
         <FilterButtonsWrapper>
           <FilterButton>Price</FilterButton>

@@ -12,10 +12,10 @@ export default function ProductMarketInformation() {
       <h3>Market Information</h3>
       <div>
         <div className="row">
-          <div className="col-12 col-md-4">
+          <div className="col-12 col-md-4 pt-4">
             <img
               alt="veg-pic"
-              className="w-100"
+              className="w-100 mt-4"
               src="/assets/images/dragonfruit.png"
             />
           </div>

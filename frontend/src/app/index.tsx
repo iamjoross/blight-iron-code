@@ -83,9 +83,9 @@ export const App = () => {
       ],
       component: <Dashboard />,
     },
-    '/listing': {
-      title: 'Listing',
-      path: process.env.PUBLIC_URL + '/listing',
+    '/listings': {
+      title: 'Listings',
+      path: process.env.PUBLIC_URL + '/listings',
       component: <ListingsPage />,
     },
     '/listing/add': {
@@ -154,6 +154,7 @@ export const App = () => {
                   {Object.entries(listings).map((value, k) => {
                     return (
                       <Route
+                        key={k}
                         path={value[1].path}
                         exact
                         component={props => value[1].component}

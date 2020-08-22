@@ -14,7 +14,6 @@ export function ListingsPage() {
         <title>Home Page</title>
         <meta
           name="description"
-          content="A React Boilerplate application homepage"
         />
       </Helmet>
       <NavBarFilter />
